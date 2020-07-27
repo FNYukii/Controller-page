@@ -125,7 +125,7 @@
           <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
         
           <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
-          <input type="button" class="button"　id="theme" value="☆" onclick="themeClick();"></button>
+          <input type="button" class="button" id="theme" value="☆" onclick="themeClick();"></button>
           <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
         </div>
 
@@ -152,6 +152,8 @@
           document.getElementById("right").click();
         }else if(keyName === 'z'){
           document.getElementById("stop").click();
+        }else if(keyName === 'x'){
+          document.getElementById("theme").click();
         }else if(keyName === 'c'){
           document.getElementById("street").click();
         }
@@ -211,6 +213,7 @@
 
       //ダークテーマ切り替え
       function themeClick(){
+        document.getElementById("theme").classList.toggle('active');
         document.body.classList.toggle("light-theme");
       }
 
