@@ -22,6 +22,14 @@
           color: #FFF;
           text-align: center;
         }
+        .display {
+          width: 200px;
+          height: 30px;
+          margin: auto;
+
+          color: #FFF;
+          background-color: black;
+        }
 
         .buttonsBorder {
           width: 300px;
@@ -77,11 +85,18 @@
 
     <div class="controller">
 
-
+      <!-- タイトル部分 -->
       <div class="heading">
         <h1>CONTROLLER</h1>
       </div>
 
+      <!-- ディスプレイ部分 -->
+      <div class="display">
+        <p></p>
+      </div>
+
+
+      <!-- キーパッド部分 -->
       <div class="buttonsBorder">
 
         <div class="buttons"> 
@@ -123,17 +138,20 @@
       });
 
       //各キーが押された時に起動する関数たち
+
+      const display = document.querySelector('.display');
+
       function goClick(){
-        
+        display.textContent = '前進';
       }
       function leftClick(){
-        
+        display.textContent = '左折';
       }
       function backClick(){
-        
+        display.textContent = '後退';
       }
       function rightClick(){
-        
+        display.textContent = '右折';
       }
 
 
