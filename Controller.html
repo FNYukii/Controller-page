@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+      <meta charset="UTF-8">
+      <title>ラジコン コントローラー</title>
+      <!-- <link href="css/style.css" rel="stylesheet"> -->
+      <!-- <script src="script.js" defer></script> -->
+      <style>
+        body {
+          background-color: #333333;
+        }
+        .controller {
+          width: 350px;
+          height: 500px;
+          margin: 30px auto;
+
+          background-color: #333333;
+          border: 2px solid white;
+          border-radius: 10px;
+        }
+        .heading {
+          color: #FFF;
+          text-align: center;
+        }
+
+        .buttonBox {
+          width: 300px;
+          height: 300px;
+          margin: 5px auto;
+
+          flex-wrap: wrap;
+          display: flex;
+
+          border: 2px solid #00bfff;
+          border-radius: 5px;
+        }
+      
+
+        .trueButton,.falseButton {
+          width: 96px;
+          height: 96px;
+          margin: 2px;
+
+          color: #00bfff;
+          font-size: 20px;
+
+          background-color: transparent;
+          border: 2px solid #00bfff;
+          border-radius: 5px;
+        }
+        .trueButton:focus,.falseButton:focus {
+          outline: 0;
+        }
+        .trueButton:hover {
+          color: lime;
+          border: 2px solid lime;
+        }
+        .trueButton:active {
+          color: red;
+          border: 2px solid red;
+        }
+        
+
+      </style>
+  </head>
+  <body>
+      <div class="controller">
+
+        <div class="heading">
+          <h1>CONTROLLER</h1>
+        </div>
+
+        <div class="buttonBox"> 
+          <button class="falseButton"></button>
+          <button id="" class="trueButton">前進</button>
+          <button class="falseButton"></button>
+        
+          <button id="" class="trueButton">左折</button>
+          <button id="" class="trueButton">後退</button>
+          <button id="" class="trueButton">右折</button>
+        
+          <button id="" class="trueButton">停止</button>
+          <button class="falseButton"></button>
+          <button id="" class="trueButton">まっすぐ</button>
+        </div>
+        
+
+      </div>
+    
+  </body>
+</html>
