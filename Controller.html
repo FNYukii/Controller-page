@@ -89,15 +89,14 @@
           color: red;
           border: 2px solid red;
         }
-        .lime {
-          color: lime;
-          border: 2px solid lime;
+        .white {
+          color: white;
+          border: 2px solid white;
         }
 
         /* ダークテーマ切り替え */
         .light-theme {
           background: #fff;
-          color: #333;
         }
       </style>
   </head>
@@ -217,7 +216,7 @@
 
       //ダークテーマ切り替え
       function themeClick(){
-        document.getElementById("theme").classList.toggle('lime');
+        document.getElementById("theme").classList.toggle('white');
         document.body.classList.toggle("light-theme");
       }
 
