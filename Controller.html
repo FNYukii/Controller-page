@@ -80,12 +80,12 @@
 
           <div class="buttons"> 
             <button class="falseButton"></button>
-            <button id="" class="trueButton">前進</button>
+            <button id="go" class="trueButton">前進</button>
             <button class="falseButton"></button>
           
-            <button id="" class="trueButton">左折</button>
-            <button id="" class="trueButton">後退</button>
-            <button id="" class="trueButton">右折</button>
+            <button id="left" class="trueButton">左折</button>
+            <button id="back" class="trueButton">後退</button>
+            <button id="right" class="trueButton">右折</button>
           
             <button id="" class="trueButton">停止</button>
             <button class="falseButton"></button>
@@ -94,11 +94,23 @@
 
         </div>
 
-        
+
       </div>
     
     <script>
-
+       document.addEventListener('keydown', (event) => {
+         var keyName = event.key;
+ 
+         if (keyName == 'w') {
+           document.getElementById("go").click();
+         }else if(keyName == 'a'){
+           alert('left');
+         }else if(keyName == 's'){
+          alert('back');
+         }else if(keyName == 'd'){
+          alert('right');
+         }
+       });
     </script>
 
   </body>
