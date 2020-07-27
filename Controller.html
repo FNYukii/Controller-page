@@ -108,9 +108,10 @@
       //キーボード入力を検知するイベントリスナー
       document.addEventListener('keydown', (event) => {
 
-        var keyName = event.key;
+        let keyName = event.key;
 
         if (keyName == 'w') {
+          alert('こん');
           document.getElementById("go").click();
         }else if(keyName == 'a'){
           document.getElementById("left").click();
@@ -124,11 +125,14 @@
 
       //各キーが押された時に起動する関数たち
       function goClick(){
-        document.getElementById("go").classList.toggle('active');
+        alert('にち');
+        document.getElementById("go").classList.add('active');
       }
+
       function leftClick(){
         document.getElementById("left").classList.toggle('active');
       }
+
       function backClick(){
         document.getElementById("back").classList.toggle('active');
       }
