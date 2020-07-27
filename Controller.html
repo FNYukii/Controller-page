@@ -22,16 +22,23 @@
           color: #FFF;
           text-align: center;
         }
-        .buttons {
-          width: 300px;
-          height: 300px;
-          margin: 5px auto;
-
-          flex-wrap: wrap;
-          display: flex;
+        .buttonsBorder {
+          width: 320px;
+          height: 320px;
 
           border: 2px solid #00bfff;
           border-radius: 5px;
+
+          margin: 30px auto;
+          padding: 20px;
+        }
+        .buttons {
+          width: 300px;
+          height: 300px;
+          /* margin: auto auto; */
+
+          flex-wrap: wrap;
+          display: flex;
         }
       
         .trueButton,.falseButton {
@@ -67,19 +74,25 @@
           <h1>CONTROLLER</h1>
         </div>
 
-        <div class="buttons"> 
-          <button class="falseButton"></button>
-          <button id="" class="trueButton">前進</button>
-          <button class="falseButton"></button>
-        
-          <button id="" class="trueButton">左折</button>
-          <button id="" class="trueButton">後退</button>
-          <button id="" class="trueButton">右折</button>
-        
-          <button id="" class="trueButton">停止</button>
-          <button class="falseButton"></button>
-          <button id="" class="trueButton">まっすぐ</button>
+        <div class="buttonsBorder">
+
+          <div class="buttons"> 
+            <button class="falseButton"></button>
+            <button id="" class="trueButton">前進</button>
+            <button class="falseButton"></button>
+          
+            <button id="" class="trueButton">左折</button>
+            <button id="" class="trueButton">後退</button>
+            <button id="" class="trueButton">右折</button>
+          
+            <button id="" class="trueButton">停止</button>
+            <button class="falseButton"></button>
+            <button id="" class="trueButton">まっすぐ</button>
+          </div>
+
         </div>
+
+        
         
       </div>
     
