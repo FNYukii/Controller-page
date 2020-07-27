@@ -23,12 +23,16 @@
           text-align: center;
         }
         .display {
-          width: 200px;
+          width: 300px;
           height: 30px;
           margin: auto;
 
-          color: #FFF;
-          background-color: black;
+          color: #00bfff;
+          text-align: center;
+          font-size: 20px;
+
+          border: 2px solid #00bfff;
+          border-radius: 5px;
         }
 
         .buttonsBorder {
@@ -108,9 +112,9 @@
           <input type="button" class="button" id="back" value="後退" onclick="backClick();"></button>
           <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
         
-          <input type="button" class="button" id="stop" value="停止"></button>
+          <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
           <input type="button" class="button"></button>
-          <input type="button" class="button" id="street" value="まっすぐ"></button>
+          <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
         </div>
 
       </div>
@@ -133,6 +137,10 @@
           document.getElementById("back").click();
         }else if(keyName == 'd'){
           document.getElementById("right").click();
+        }else if(keyName == 'z'){
+          document.getElementById("stop").click();
+        }else if(keyName == 'c'){
+          document.getElementById("street").click();
         }
 
       });
@@ -152,6 +160,12 @@
       }
       function rightClick(){
         display.textContent = '右折';
+      }
+      function stopClick(){
+        display.textContent = '停止';
+      }
+      function streetClick(){
+        display.textContent = 'まっすぐ';
       }
 
 
