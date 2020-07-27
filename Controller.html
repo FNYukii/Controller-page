@@ -42,7 +42,7 @@
           display: flex;
         }
       
-        .trueButton,.falseButton {
+        .button {
           width: 96px;
           height: 96px;
           margin: 2px;
@@ -54,15 +54,15 @@
           border: 2px solid #00bfff;
           border-radius: 5px;
         }
-        .trueButton:hover,.falseButton:hover {
+        .button:hover {
           color: lime;
           border: 2px solid lime;
         }
-        .trueButton:active,.falseButton:active {
+        .button:active {
           color: red;
           border: 2px solid red;
         }
-        .trueButton:focus,.falseButton:focus {
+        .button:focus {
           outline: 0;
         }
 
@@ -85,17 +85,17 @@
       <div class="buttonsBorder">
 
         <div class="buttons"> 
-          <input type="button" class="falseButton"></button>
-          <input type="button" class="trueButton" id="go" value="前進" onclick="goClick();"></button>
-          <input type="button" class="falseButton"></button>
+          <input type="button" class="button"></button>
+          <input type="button" class="button" id="go" value="前進" onclick="goClick();"></button>
+          <input type="button" class="button"></button>
         
-          <input type="button" class="trueButton" id="left" value="左折" onclick="leftClick();"></button>
-          <input type="button" class="trueButton" id="back" value="後退" onclick="backClick();"></button>
-          <input type="button" class="trueButton" id="right" value="右折" onclick="rightClick();"></button>
+          <input type="button" class="button" id="left" value="左折" onclick="leftClick();"></button>
+          <input type="button" class="button" id="back" value="後退" onclick="backClick();"></button>
+          <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
         
-          <input type="button" class="trueButton" id="stop" value="停止"></button>
-          <input type="button" class="falseButton"></button>
-          <input type="button" class="trueButton" id="street" value="まっすぐ"></button>
+          <input type="button" class="button" id="stop" value="停止"></button>
+          <input type="button" class="button"></button>
+          <input type="button" class="button" id="street" value="まっすぐ"></button>
         </div>
 
       </div>
@@ -140,5 +140,5 @@
     </script>
 
   </body>
-  
+
 </html>
