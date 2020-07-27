@@ -126,26 +126,48 @@
     
     <script>
 
-      //キーボード入力を検知するイベントリスナー
-      document.addEventListener('keydown', (event) => {
+      //キーを押した時を検知する
+      document.addEventListener('keydown', handleKeydown);
 
-        var keyName = event.key;
+      function handleKeydown(event){
+        let keyName = event.key;
 
-        if (keyName == 'w') {
+        if (keyName === 'w') {
           document.getElementById("go").click();
-        }else if(keyName == 'a'){
+        }else if(keyName === 'a'){
           document.getElementById("left").click();
-        }else if(keyName == 's'){
+        }else if(keyName === 's'){
           document.getElementById("back").click();
-        }else if(keyName == 'd'){
+        }else if(keyName === 'd'){
           document.getElementById("right").click();
-        }else if(keyName == 'z'){
+        }else if(keyName === 'z'){
           document.getElementById("stop").click();
-        }else if(keyName == 'c'){
+        }else if(keyName === 'c'){
           document.getElementById("street").click();
         }
+      }
+      
+      
+      //キーを離した時を検知する
+      document.addEventListener("keyup", handleKeyup);
 
-      });
+      function handleKeyup(event){
+        let keyName = event.key;
+        
+        if (keyName === 'w') {
+          document.getElementById("go").click();
+        }else if(keyName === 'a'){
+          document.getElementById("left").click();
+        }else if(keyName === 's'){
+          document.getElementById("back").click();
+        }else if(keyName === 'd'){
+          document.getElementById("right").click();
+        }else if(keyName === 'z'){
+          document.getElementById("stop").click();
+        }else if(keyName === 'c'){
+          document.getElementById("street").click();
+        }
+      }
 
       
       //ディスプレイに文字列を表示する
@@ -153,21 +175,27 @@
 
       function goClick(){
         display.textContent = '前進';
+        document.getElementById("go").classList.toggle('active');
       }
       function leftClick(){
         display.textContent = '左折';
+        document.getElementById("left").classList.toggle('active');
       }
       function backClick(){
         display.textContent = '後退';
+        document.getElementById("back").classList.toggle('active');
       }
       function rightClick(){
         display.textContent = '右折';
+        document.getElementById("right").classList.toggle('active');
       }
       function stopClick(){
         display.textContent = '停止';
+        document.getElementById("stop").classList.toggle('active');
       }
       function streetClick(){
         display.textContent = 'まっすぐ';
+        document.getElementById("street").classList.toggle('active');
       }
 
     </script>
