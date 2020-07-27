@@ -85,9 +85,13 @@
         }
 
         /* キーボード操作時に使うスタイル */
-        .active {
+        .red {
           color: red;
           border: 2px solid red;
+        }
+        .lime {
+          color: lime;
+          border: 2px solid lime;
         }
 
         /* ダークテーマ切り替え */
@@ -187,33 +191,33 @@
 
       function goClick(){
         display.textContent = '前進';
-        document.getElementById("go").classList.toggle('active');
+        document.getElementById("go").classList.toggle('red');
       }
       function leftClick(){
         display.textContent = '左折';
-        document.getElementById("left").classList.toggle('active');
+        document.getElementById("left").classList.toggle('red');
       }
       function backClick(){
         display.textContent = '後退';
-        document.getElementById("back").classList.toggle('active');
+        document.getElementById("back").classList.toggle('red');
       }
       function rightClick(){
         display.textContent = '右折';
-        document.getElementById("right").classList.toggle('active');
+        document.getElementById("right").classList.toggle('red');
       }
       function stopClick(){
         display.textContent = '停止';
-        document.getElementById("stop").classList.toggle('active');
+        document.getElementById("stop").classList.toggle('red');
       }
       function streetClick(){
         display.textContent = 'まっすぐ';
-        document.getElementById("street").classList.toggle('active');
+        document.getElementById("street").classList.toggle('red');
       }
 
 
       //ダークテーマ切り替え
       function themeClick(){
-        document.getElementById("theme").classList.toggle('active');
+        document.getElementById("theme").classList.toggle('lime');
         document.body.classList.toggle("light-theme");
       }
 
