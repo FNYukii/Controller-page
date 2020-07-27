@@ -42,7 +42,7 @@
           display: flex;
         }
       
-        .buttons input {
+        .trueButton,.falseButton {
           width: 96px;
           height: 96px;
           margin: 2px;
@@ -54,15 +54,15 @@
           border: 2px solid #00bfff;
           border-radius: 5px;
         }
-        .buttons input:hover {
+        .trueButton:hover,.falseButton:hover {
           color: lime;
           border: 2px solid lime;
         }
-        .buttons input:active {
+        .trueButton:active,.falseButton:active {
           color: red;
           border: 2px solid red;
         }
-        .buttons input:focus {
+        .trueButton:focus,.falseButton:focus {
           outline: 0;
         }
 
@@ -85,17 +85,17 @@
       <div class="buttonsBorder">
 
         <div class="buttons"> 
-          <input type="button"></button>
-          <input type="button" id="go" value="前進" onclick="goClick();"></button>
-          <input type="button"></button>
+          <input type="button" class="falseButton"></button>
+          <input type="button" class="trueButton" id="go" value="前進" onclick="goClick();"></button>
+          <input type="button" class="falseButton"></button>
         
-          <input type="button" id="left" value="左折" onclick="leftClick();"></button>
-          <input type="button" id="back" value="後退" onclick="backClick();"></button>
-          <input type="button" id="right" value="右折" onclick="rightClick();"></button>
+          <input type="button" class="trueButton" id="left" value="左折" onclick="leftClick();"></button>
+          <input type="button" class="trueButton" id="back" value="後退" onclick="backClick();"></button>
+          <input type="button" class="trueButton" id="right" value="右折" onclick="rightClick();"></button>
         
-          <input type="button" id="stop" value="停止"></button>
-          <input type="button"></button>
-          <input type="button" id="street" value="まっすぐ"></button>
+          <input type="button" class="trueButton" id="stop" value="停止"></button>
+          <input type="button" class="falseButton"></button>
+          <input type="button" class="trueButton" id="street" value="まっすぐ"></button>
         </div>
 
       </div>
@@ -108,10 +108,9 @@
       //キーボード入力を検知するイベントリスナー
       document.addEventListener('keydown', (event) => {
 
-        let keyName = event.key;
+        var keyName = event.key;
 
         if (keyName == 'w') {
-          alert('こん');
           document.getElementById("go").click();
         }else if(keyName == 'a'){
           document.getElementById("left").click();
@@ -125,20 +124,18 @@
 
       //各キーが押された時に起動する関数たち
       function goClick(){
-        alert('にち');
-        document.getElementById("go").classList.add('active');
+        document.getElementById("go").classList.toggle('active');
       }
-
       function leftClick(){
         document.getElementById("left").classList.toggle('active');
       }
-
       function backClick(){
         document.getElementById("back").classList.toggle('active');
       }
       function rightClick(){
         document.getElementById("right").classList.toggle('active');
       }
+
 
     </script>
 
