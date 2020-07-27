@@ -8,7 +8,9 @@
       <style>
         body {
           background-color: #333333;
+          /* flex-wrap: wrap; */
         }
+
         .controller {
           width: 350px;
           height: 500px;
@@ -21,6 +23,18 @@
         .heading {
           color: #FFF;
           text-align: center;
+        }
+        .display {
+          width: 300px;
+          height: 30px;
+          margin: auto;
+
+          color: #00bfff;
+          text-align: center;
+          font-size: 20px;
+
+          border: 2px solid #00bfff;
+          border-radius: 5px;
         }
 
         .buttonsBorder {
@@ -75,13 +89,21 @@
   </head>
   <body>
 
+    
+    <!-- コントローラー全体 -->
     <div class="controller">
 
-
+      <!-- タイトル部分 -->
       <div class="heading">
         <h1>CONTROLLER</h1>
       </div>
 
+      <!-- ディスプレイ部分 -->
+      <div class="display">
+        <p></p>
+      </div>
+
+      <!-- キーパッド部分 -->
       <div class="buttonsBorder">
 
         <div class="buttons"> 
@@ -93,15 +115,15 @@
           <input type="button" class="button" id="back" value="後退" onclick="backClick();"></button>
           <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
         
-          <input type="button" class="button" id="stop" value="停止"></button>
+          <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
           <input type="button" class="button"></button>
-          <input type="button" class="button" id="street" value="まっすぐ"></button>
+          <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
         </div>
 
-      </div>
-
-
-    </div>
+      </div><!-- キーパッド部分おしまい -->
+      
+    </div> <!-- コントローラー全体おしまい -->
+   
     
     <script>
 
@@ -118,22 +140,35 @@
           document.getElementById("back").click();
         }else if(keyName == 'd'){
           document.getElementById("right").click();
+        }else if(keyName == 'z'){
+          document.getElementById("stop").click();
+        }else if(keyName == 'c'){
+          document.getElementById("street").click();
         }
 
       });
 
-      //各キーが押された時に起動する関数たち
+      
+      //ディスプレイに文字列を表示する
+      const display = document.querySelector('.display');
+
       function goClick(){
-        document.getElementById("go").classList.toggle('active');
+        display.textContent = '前進';
       }
       function leftClick(){
-        document.getElementById("left").classList.toggle('active');
+        display.textContent = '左折';
       }
       function backClick(){
-        document.getElementById("back").classList.toggle('active');
+        display.textContent = '後退';
       }
       function rightClick(){
-        document.getElementById("right").classList.toggle('active');
+        display.textContent = '右折';
+      }
+      function stopClick(){
+        display.textContent = '停止';
+      }
+      function streetClick(){
+        display.textContent = 'まっすぐ';
       }
 
     </script>
