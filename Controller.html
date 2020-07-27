@@ -80,6 +80,8 @@
           outline: 0;
         }
 
+        
+
         .active {
           color: red;
           border: 2px solid red;
@@ -115,7 +117,7 @@
           <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
         
           <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
-          <input type="button" class="button"></button>
+          <input type="button" class="button"　id="night" value="☆" onclick="nightClick();"></button>
           <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
         </div>
 
@@ -147,7 +149,7 @@
         }
       }
       
-      
+
       //キーを離した時を検知する
       document.addEventListener("keyup", handleKeyup);
 
@@ -196,6 +198,10 @@
       function streetClick(){
         display.textContent = 'まっすぐ';
         document.getElementById("street").classList.toggle('active');
+      }
+
+      function nightClick(){
+
       }
 
     </script>
