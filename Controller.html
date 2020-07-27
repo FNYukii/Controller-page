@@ -120,16 +120,16 @@
 
         <div class="buttons"> 
           <input type="button" class="button"></button>
-          <input type="button" class="button" id="go" value="前進" onclick="goClick();"></button>
+          <input type="button" class="button" id="go" value="前進"></button>
           <input type="button" class="button"></button>
         
-          <input type="button" class="button" id="left" value="左折" onclick="leftClick();"></button>
-          <input type="button" class="button" id="back" value="後退" onclick="backClick();"></button>
-          <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
+          <input type="button" class="button" id="left" value="左折"></button>
+          <input type="button" class="button" id="back" value="後退"></button>
+          <input type="button" class="button" id="right" value="右折"></button>
         
-          <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
-          <input type="button" class="button" id="theme" value="☆" onclick="themeClick();"></button>
-          <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
+          <input type="button" class="button" id="stop" value="停止"></button>
+          <input type="button" class="button" id="theme" value="☆"></button>
+          <input type="button" class="button" id="street" value="まっすぐ"></button>
         </div>
 
       </div><!-- キーパッド部分おしまい -->
@@ -147,18 +147,25 @@
 
         if (keyName === 'w') {
           document.getElementById("go").click();
+          goClick();
         }else if(keyName === 'a'){
           document.getElementById("left").click();
+          leftClick();
         }else if(keyName === 's'){
           document.getElementById("back").click();
+          backClick();
         }else if(keyName === 'd'){
           document.getElementById("right").click();
+          rightClick();
         }else if(keyName === 'z'){
           document.getElementById("stop").click();
+          stopClick();
         }else if(keyName === 'x'){
           document.getElementById("theme").click();
+          themeClick();
         }else if(keyName === 'c'){
           document.getElementById("street").click();
+          streetClick();
         }
       }
       
@@ -180,7 +187,7 @@
         }else if(keyName === 'z'){
           stopClick();
         }else if(keyName === 'c'){
-          streenClick();
+          streetClick();
         }
       }
 
