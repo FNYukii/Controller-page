@@ -6,9 +6,10 @@
       <style>
         body {
           background-color: #333333;
+          transition: 0.5s;
         }
 
-        /* コントローラー全体 */
+        /* リモコン全体 */
         .controller {
           width: 350px;
           height: 500px;
@@ -39,8 +40,8 @@
           border-radius: 5px;
         }
 
-        /* ボタンの集合に対するスタイル */
-        .buttonsBorder {
+        /* ボタンたちに対するスタイル */
+        .buttons-container {
           width: 300px;
           height: 300px;
 
@@ -71,6 +72,8 @@
           background-color: transparent;
           border: 2px solid #00bfff;
           border-radius: 5px;
+
+          transition: 0.8s;
         }
         .button:hover {
           color: lime;
@@ -84,26 +87,41 @@
           outline: 0;
         }
 
-        /* キーボード操作時に使うスタイル */
-        .red {
+        /* 各キーが押されている間、対応したボタンを赤色にする */
+        .redButton {
           color: red;
           border: 2px solid red;
         }
-        .white {
-          color: white;
-          border: 2px solid white;
+        
+        /* ライトテーマ関連 */
+        .light-themeButton {
+          /* color: white;
+          border: 2px solid white; */
+          
+          transform: rotate(360deg);
+        }
+        .light-body {
+          background-color: skyblue;
+        }
+        .light-controller {
+          background-color: orange;
+        }
+        .light-display {
+          background-color: #FFF;
+          border: 2px solid transparent;
+          color: rgb(44, 44, 44);
+        }
+        .light-buttons-container {
+          background-color: #FFF;
+          border: 2px solid #FFF;
         }
 
-        /* ダークテーマ切り替え */
-        .light-theme {
-          background: #fff;
-        }
       </style>
   </head>
   <body>
 
-    <!-- コントローラー全体 -->
-    <div class="controller">
+    <!-- リモコン全体 -->
+    <div class="controller" id="controller">
 
       <!-- タイトル部分 -->
       <div class="heading">
@@ -111,12 +129,12 @@
       </div>
 
       <!-- ディスプレイ部分 -->
-      <div class="display">
+      <div class="display" id="display">
         <p></p>
       </div>
 
       <!-- キーパッド部分 -->
-      <div class="buttonsBorder">
+      <div class="buttons-container" id="buttons-container">
 
         <div class="buttons"> 
           <input type="button" class="button"></button>
@@ -128,13 +146,13 @@
           <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
         
           <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
-          <input type="button" class="button" id="theme" value="☆" onclick="themeClick();"></button>
+          <input type="button" class="button" id="themeButton" value="☆" onclick="themeClick();"></button>
           <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
         </div>
 
       </div><!-- キーパッド部分おしまい -->
       
-    </div> <!-- コントローラー全体おしまい -->
+    </div> <!-- リモコン全体おしまい -->
    
     
     <script>
@@ -161,7 +179,7 @@
           document.getElementById("stop").click();
           zPush();
         }else if(keyName === 'x'){
-          document.getElementById("theme").click();
+          document.getElementById("themeButton").click();
           xPush();
         }else if(keyName === 'c'){
           document.getElementById("street").click();
@@ -195,27 +213,27 @@
       
       //各キーボードを押してる間、対応したボタンにスタイル「red」を適用する。
       function wPush(){
-        document.getElementById("go").classList.toggle('red');
+        document.getElementById("go").classList.toggle('redButton');
       }
       function aPush(){
         display.textContent = '左折';
-        document.getElementById("left").classList.toggle('red');
+        document.getElementById("left").classList.toggle('redButton');
       }
       function sPush(){
         display.textContent = '後退';
-        document.getElementById("back").classList.toggle('red');
+        document.getElementById("back").classList.toggle('redButton');
       }
       function dPush(){
         display.textContent = '右折';
-        document.getElementById("right").classList.toggle('red');
+        document.getElementById("right").classList.toggle('redButton');
       }
       function zPush(){
         display.textContent = '停止';
-        document.getElementById("stop").classList.toggle('red');
+        document.getElementById("stop").classList.toggle('redButton');
       }
       function cPush(){
         display.textContent = 'まっすぐ';
-        document.getElementById("street").classList.toggle('red');
+        document.getElementById("street").classList.toggle('redButton');
       }
 
 
@@ -246,8 +264,11 @@
 
       //themeボタンが押されたときは、ライトテーマ切り替え
       function themeClick(){
-        document.getElementById("theme").classList.toggle('white');
-        document.body.classList.toggle("light-theme");
+        document.getElementById("themeButton").classList.toggle("light-themeButton");
+        document.body.classList.toggle("light-body");
+        document.getElementById("controller").classList.toggle("light-controller");
+        document.getElementById("display").classList.toggle("light-display");
+        document.getElementById("buttons-container").classList.toggle("light-buttons-container");
       }
 
     </script>
