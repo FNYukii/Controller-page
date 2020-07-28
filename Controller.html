@@ -120,7 +120,7 @@
 
         <div class="buttons"> 
           <input type="button" class="button"></button>
-          <input type="button" class="button" id="go" value="前進" onclick="goClick();"></button>
+          <input type="button" class="button" id="go" value="前進" onclick="goClick();"></button> <!-- ボタンを押すと、関数「goClick()」が起動する -->
           <input type="button" class="button"></button>
         
           <input type="button" class="button" id="left" value="左折" onclick="leftClick();"></button>
@@ -128,7 +128,7 @@
           <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
         
           <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
-          <input type="button" class="button" id="theme" value="☆"></button>
+          <input type="button" class="button" id="theme" value="☆" onclick="themeClick();"></button>
           <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
         </div>
 
@@ -146,8 +146,8 @@
         let keyName = event.key;
 
         if (keyName === 'w') {
-          document.getElementById("go").click();
-          wPush();
+          document.getElementById("go").click(); //JavaScriptによってgoボタンが押される
+          wPush();                              //goボタンを赤色にする関数「wPush()」を実行
         }else if(keyName === 'a'){
           document.getElementById("left").click();
           aPush();
@@ -193,9 +193,8 @@
 
       
       
-
+      //各キーボードを押してる間、対応したボタンにスタイル「red」を適用する。
       function wPush(){
-        
         document.getElementById("go").classList.toggle('red');
       }
       function aPush(){
@@ -219,7 +218,9 @@
         document.getElementById("street").classList.toggle('red');
       }
 
-      //ディスプレイに文字列を表示する
+
+
+      //各ボタンがクリックされたとき、ディスプレイに行動内容を表示する
       const display = document.querySelector('.display');
 
       function goClick(){
@@ -243,10 +244,8 @@
 
 
 
-
-
-      //ダークテーマ切り替え
-      function xPush(){
+      //themeボタンが押されたときは、ライトテーマ切り替え
+      function themeClick(){
         document.getElementById("theme").classList.toggle('white');
         document.body.classList.toggle("light-theme");
       }
