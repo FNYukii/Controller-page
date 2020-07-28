@@ -120,16 +120,16 @@
 
         <div class="buttons"> 
           <input type="button" class="button"></button>
-          <input type="button" class="button" id="go" value="前進"></button>
+          <input type="button" class="button" id="go" value="前進" onclick="goClick();"></button>
           <input type="button" class="button"></button>
         
-          <input type="button" class="button" id="left" value="左折"></button>
-          <input type="button" class="button" id="back" value="後退"></button>
-          <input type="button" class="button" id="right" value="右折"></button>
+          <input type="button" class="button" id="left" value="左折" onclick="leftClick();"></button>
+          <input type="button" class="button" id="back" value="後退" onclick="backClick();"></button>
+          <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
         
-          <input type="button" class="button" id="stop" value="停止"></button>
+          <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
           <input type="button" class="button" id="theme" value="☆"></button>
-          <input type="button" class="button" id="street" value="まっすぐ"></button>
+          <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
         </div>
 
       </div><!-- キーパッド部分おしまい -->
@@ -147,25 +147,25 @@
 
         if (keyName === 'w') {
           document.getElementById("go").click();
-          goClick();
+          wPush();
         }else if(keyName === 'a'){
           document.getElementById("left").click();
-          leftClick();
+          aPush();
         }else if(keyName === 's'){
           document.getElementById("back").click();
-          backClick();
+          sPush();
         }else if(keyName === 'd'){
           document.getElementById("right").click();
-          rightClick();
+          dPush();
         }else if(keyName === 'z'){
           document.getElementById("stop").click();
-          stopClick();
+          zPush();
         }else if(keyName === 'x'){
           document.getElementById("theme").click();
-          themeClick();
+          xPush();
         }else if(keyName === 'c'){
           document.getElementById("street").click();
-          streetClick();
+          cPush();
         }
       }
       
@@ -177,52 +177,76 @@
         let keyName = event.key;
         
         if (keyName === 'w') {
-          goClick();
+          wPush();
         }else if(keyName === 'a'){
-          leftClick();
+          aPush();
         }else if(keyName === 's'){
-          backClick();
+          sPush();
         }else if(keyName === 'd'){
-          rightClick();
+          dPush();
         }else if(keyName === 'z'){
-          stopClick();
+          zPush();
         }else if(keyName === 'c'){
-          streetClick();
+          cPush();
         }
       }
 
       
+      
+
+      function wPush(){
+        
+        document.getElementById("go").classList.toggle('red');
+      }
+      function aPush(){
+        display.textContent = '左折';
+        document.getElementById("left").classList.toggle('red');
+      }
+      function sPush(){
+        display.textContent = '後退';
+        document.getElementById("back").classList.toggle('red');
+      }
+      function dPush(){
+        display.textContent = '右折';
+        document.getElementById("right").classList.toggle('red');
+      }
+      function zPush(){
+        display.textContent = '停止';
+        document.getElementById("stop").classList.toggle('red');
+      }
+      function cPush(){
+        display.textContent = 'まっすぐ';
+        document.getElementById("street").classList.toggle('red');
+      }
+
       //ディスプレイに文字列を表示する
       const display = document.querySelector('.display');
 
       function goClick(){
         display.textContent = '前進';
-        document.getElementById("go").classList.toggle('red');
       }
       function leftClick(){
         display.textContent = '左折';
-        document.getElementById("left").classList.toggle('red');
       }
       function backClick(){
         display.textContent = '後退';
-        document.getElementById("back").classList.toggle('red');
       }
       function rightClick(){
         display.textContent = '右折';
-        document.getElementById("right").classList.toggle('red');
       }
       function stopClick(){
         display.textContent = '停止';
-        document.getElementById("stop").classList.toggle('red');
       }
       function streetClick(){
         display.textContent = 'まっすぐ';
-        document.getElementById("street").classList.toggle('red');
       }
 
 
+
+
+
       //ダークテーマ切り替え
-      function themeClick(){
+      function xPush(){
         document.getElementById("theme").classList.toggle('white');
         document.body.classList.toggle("light-theme");
       }
