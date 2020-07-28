@@ -102,7 +102,7 @@
           background-color: #FFF;
           border: 2px solid transparent;
           color: lime;
-          font-size: 25px;
+          font-weight: bold;
         }
         .light-buttons-container {
           background-color: orange;
@@ -157,7 +157,6 @@
 
       //キーを押した時を検知する
       document.addEventListener('keydown', handleKeydown);
-
       function handleKeydown(event){
         let keyName = event.key;
 
@@ -188,7 +187,6 @@
 
       //キーを離した時を検知する
       document.addEventListener("keyup", handleKeyup);
-
       function handleKeyup(event){
         let keyName = event.key;
         
@@ -259,7 +257,7 @@
       }
 
 
-      //themeボタンが押されたときは、ライトテーマ切り替え
+      //themeButtonが押されたときは、ライトテーマ切り替え
       function themeClick(){
         document.body.classList.toggle("light-body");
         document.getElementById("controller").classList.toggle("light-controller");
