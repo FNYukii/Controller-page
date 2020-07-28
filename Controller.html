@@ -5,7 +5,7 @@
       <title>ラジコン コントローラー</title>
       <style>
         body {
-          background-color: #333333;
+          background-color: #333;
           transition: 0.5s;
         }
 
@@ -15,7 +15,7 @@
           height: 500px;
           margin: 30px auto;
 
-          background-color: #333333;
+          background-color: #333;
           border: 2px solid white;
           border-radius: 10px;
         }
@@ -92,9 +92,6 @@
         }
         
         /* ライトテーマ関連 */
-        .light-themeButton {
-
-        }
         .light-body {
           background-color: skyblue;
         }
@@ -104,11 +101,16 @@
         .light-display {
           background-color: #FFF;
           border: 2px solid transparent;
-          color: rgb(44, 44, 44);
+          color: lime;
         }
         .light-buttons-container {
-          background-color: #FFF;
+          background-color: orange;
+          border: 2px solid transparent;
+        }
+        .light-button {
           border: 2px solid #FFF;
+          background-color: rgb(104, 127, 255);
+          color: #FFF;
         }
 
       </style>
@@ -131,10 +133,10 @@
       <!-- キーパッド部分 -->
       <div class="buttons-container" id="buttons-container">
 
-        <div class="buttons"> 
-          <input type="button" class="button"></button>
+        <div class="buttons" id="buttons"> 
+          <input type="button" class="button" id="emptyButton"></button>
           <input type="button" class="button" id="go" value="前進" onclick="goClick();"></button> <!-- ボタンを押すと、関数「goClick()」が起動する -->
-          <input type="button" class="button"></button>
+          <input type="button" class="button" id="emptyButton2"></button>
         
           <input type="button" class="button" id="left" value="左折" onclick="leftClick();"></button>
           <input type="button" class="button" id="back" value="後退" onclick="backClick();"></button>
@@ -258,11 +260,22 @@
 
       //themeボタンが押されたときは、ライトテーマ切り替え
       function themeClick(){
-        document.getElementById("themeButton").classList.toggle("light-themeButton");
         document.body.classList.toggle("light-body");
         document.getElementById("controller").classList.toggle("light-controller");
         document.getElementById("display").classList.toggle("light-display");
         document.getElementById("buttons-container").classList.toggle("light-buttons-container");
+
+        document.getElementById("emptyButton").classList.toggle("light-button");
+        document.getElementById("go").classList.toggle("light-button");
+        document.getElementById("emptyButton2").classList.toggle("light-button");
+
+        document.getElementById("left").classList.toggle("light-button");
+        document.getElementById("back").classList.toggle("light-button");
+        document.getElementById("right").classList.toggle("light-button");
+
+        document.getElementById("stop").classList.toggle("light-button");
+        document.getElementById("themeButton").classList.toggle("light-button");
+        document.getElementById("street").classList.toggle("light-button");
       }
 
     </script>
