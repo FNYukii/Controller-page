@@ -218,28 +218,32 @@
       
       
       //各キーボードを押してる間、対応したボタンにスタイル「red」を適用する。
-      function wPush(){
-        document.getElementById("go").classList.toggle('redButton');
+      function qPush(){
+        document.getElementById("emptyButton").classList.toggle("redButton");
       }
+      function wPush(){
+        document.getElementById("go").classList.toggle("redButton");
+      }
+      function ePush(){
+        document.getElementById("emptyButton2").classList.toggle("redButton");
+      }
+
       function aPush(){
-        display.textContent = '左折';
-        document.getElementById("left").classList.toggle('redButton');
+        document.getElementById("left").classList.toggle("redButton");
       }
       function sPush(){
-        display.textContent = '後退';
-        document.getElementById("back").classList.toggle('redButton');
+        document.getElementById("back").classList.toggle("redButton");
       }
       function dPush(){
-        display.textContent = '右折';
-        document.getElementById("right").classList.toggle('redButton');
+        document.getElementById("right").classList.toggle("redButton");
       }
+
       function zPush(){
-        display.textContent = '停止';
-        document.getElementById("stop").classList.toggle('redButton');
+        document.getElementById("stop").classList.toggle("redButton");
       }
+      //xpushは作ってません
       function cPush(){
-        display.textContent = 'まっすぐ';
-        document.getElementById("street").classList.toggle('redButton');
+        document.getElementById("street").classList.toggle("redButton");
       }
 
 
