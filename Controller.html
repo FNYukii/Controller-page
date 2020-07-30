@@ -160,9 +160,15 @@
       function handleKeydown(event){
         let keyName = event.key;
 
-        if (keyName === 'w') {
-          document.getElementById("go").click(); //JavaScriptによってgoボタンが押される
-          wPush();                              //goボタンを赤色にする関数「wPush()」を実行
+        if (keyName === 'q') {
+          document.getElementById("emptyButton").click(); //JavaScriptによってgoボタンが押される
+          qPush();                              //goボタンを赤色にする関数「wPush()」を実行
+        }else if(keyName === 'w'){
+          document.getElementById("go").click();
+          wPush();
+        }else if(keyName === 'e'){
+          document.getElementById("emptyButton2").click();
+          ePush();
         }else if(keyName === 'a'){
           document.getElementById("left").click();
           aPush();
@@ -190,8 +196,12 @@
       function handleKeyup(event){
         let keyName = event.key;
         
-        if (keyName === 'w') {
+        if (keyName === 'q') {
+          qPush();
+        }else if(keyName === 'w'){
           wPush();
+        }else if(keyName === 'e'){
+          ePush();
         }else if(keyName === 'a'){
           aPush();
         }else if(keyName === 's'){
@@ -260,9 +270,7 @@
       function stopClick(){
         display.textContent = "停止";
       }
-      function themeButtonClick(){
-        display.textContent = "ライトテーマ";
-      }
+      //themeButtonClick()はちょっと特殊なので後で記述
       function streetClick(){
         display.textContent = "まっすぐ";
       }
@@ -270,6 +278,8 @@
 
       //themeButtonが押されたときは、ライトテーマ切り替え
       function themeButtonClick(){
+        display.textContent = "ライトテーマ";
+
         document.body.classList.toggle("light-body");
         document.getElementById("controller").classList.toggle("light-controller");
         document.getElementById("display").classList.toggle("light-display");
