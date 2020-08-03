@@ -117,6 +117,7 @@
       </style>
   </head>
   <body>
+        
 
     <!-- リモコン全体 -->
     <div class="controller" id="controller">
@@ -135,24 +136,25 @@
       <div class="buttons-container" id="buttons-container">
 
         <div class="buttons" id="buttons"> 
-          <input type="button" class="button" id="emptyButton" onclick="emptyButtonClick();"></button>
-          <input type="button" class="button" id="go" value="前進" onclick="goClick();"></button> <!-- ボタンを押すと、関数「goClick()」が起動する -->
-          <input type="button" class="button" id="emptyButton2" onclick="emptyButton2Click();"></button>
+          <input type="button" class="button" id="emptyButton" onclick="emptyButtonClick();"></input>
+          <input type="button" class="button" id="startButton" value="前進" onclick="startButtonClick();"></input> <!-- ボタンを押すと、関数「goClick()」が起動する -->
+          <input type="button" class="button" id="emptyButton2" onclick="emptyButton2Click();"></input>
         
-          <input type="button" class="button" id="left" value="左折" onclick="leftClick();"></button>
-          <input type="button" class="button" id="back" value="後退" onclick="backClick();"></button>
-          <input type="button" class="button" id="right" value="右折" onclick="rightClick();"></button>
+          <input type="button" class="button" id="leftButton" value="左折" onclick="leftButtonClick();"></input>
+          <input type="button" class="button" id="backButton" value="後退" onclick="backButtonClick();"></input>
+          <input type="button" class="button" id="rightButton" value="右折" onclick="rightButtonClick();"></input>
         
-          <input type="button" class="button" id="stop" value="停止" onclick="stopClick();"></button>
-          <input type="button" class="button" id="themeButton" value="☆" onclick="themeButtonClick();"></button>
-          <input type="button" class="button" id="street" value="まっすぐ" onclick="streetClick();"></button>
+          <input type="button" class="button" id="stopButton" value="停止" onclick="stopButtonClick();"></input>
+          <input type="button" class="button" id="themeButton" value="☆" onclick="themeButtonClick();"></input>
+          <input type="button" class="button" id="centerButton" value="まっすぐ" onclick="centerButtonClick();"></input>
         </div>
 
       </div><!-- キーパッド部分おしまい -->
       
     </div> <!-- リモコン全体おしまい -->
    
-    
+    <script src='./js/jquery-3.4.1.min.js'></script>
+    <script src='./js/carControl.js'></script>
     <script>
 
       //キーを押した時を検知する
@@ -162,31 +164,31 @@
 
         if (keyName === 'q') {
           document.getElementById("emptyButton").click(); //JavaScriptによってgoボタンが押される
-          qPush();                              //goボタンを赤色にする関数「wPush()」を実行
+          qDown();                              //goボタンを赤色にする関数「wPush()」を実行
         }else if(keyName === 'w'){
-          document.getElementById("go").click();
-          wPush();
+          document.getElementById("startButton").click();
+          wDown();
         }else if(keyName === 'e'){
           document.getElementById("emptyButton2").click();
-          ePush();
+          eDown();
         }else if(keyName === 'a'){
-          document.getElementById("left").click();
-          aPush();
+          document.getElementById("leftButton").click();
+          aDown();
         }else if(keyName === 's'){
-          document.getElementById("back").click();
-          sPush();
+          document.getElementById("backButton").click();
+          sDown();
         }else if(keyName === 'd'){
-          document.getElementById("right").click();
-          dPush();
+          document.getElementById("rightButton").click();
+          dDown();
         }else if(keyName === 'z'){
-          document.getElementById("stop").click();
-          zPush();
+          document.getElementById("stopButton").click();
+          zDown();
         }else if(keyName === 'x'){
           document.getElementById("themeButton").click();
-          xPush();
+          xDown();
         }else if(keyName === 'c'){
-          document.getElementById("street").click();
-          cPush();
+          document.getElementById("centerButton").click();
+          cDown();
         }
       }
       
@@ -197,53 +199,87 @@
         let keyName = event.key;
         
         if (keyName === 'q') {
-          qPush();
+          qUp();
         }else if(keyName === 'w'){
-          wPush();
+          wUp();
+          document.getElementById("stopButton").click();
         }else if(keyName === 'e'){
-          ePush();
+          eUp();
         }else if(keyName === 'a'){
-          aPush();
+          aUp();
+          document.getElementById("stopButton").click();
         }else if(keyName === 's'){
-          sPush();
+          sUp();
+          document.getElementById("stopButton").click();
         }else if(keyName === 'd'){
-          dPush();
+          dUp();
+          document.getElementById("stopButton").click();
         }else if(keyName === 'z'){
-          zPush();
+          zUp();
         }else if(keyName === 'c'){
-          cPush();
+          cUp();
         }
       }
 
       
       
-      //各キーボードを押してる間、対応したボタンにスタイル「red」を適用する。
-      function qPush(){
-        document.getElementById("emptyButton").classList.toggle("redButton");
+      //各キーを押したら、redを適用する
+      function qDown(){
+        document.getElementById("emptyButton").classList.add("redButton");
       }
-      function wPush(){
-        document.getElementById("go").classList.toggle("redButton");
+      function wDown(){
+        document.getElementById("startButton").classList.add("redButton");
       }
-      function ePush(){
-        document.getElementById("emptyButton2").classList.toggle("redButton");
-      }
-
-      function aPush(){
-        document.getElementById("left").classList.toggle("redButton");
-      }
-      function sPush(){
-        document.getElementById("back").classList.toggle("redButton");
-      }
-      function dPush(){
-        document.getElementById("right").classList.toggle("redButton");
+      function eDown(){
+        document.getElementById("emptyButton2").classList.add("redButton");
       }
 
-      function zPush(){
-        document.getElementById("stop").classList.toggle("redButton");
+      function aDown(){
+        document.getElementById("leftButton").classList.add("redButton");
       }
-      //xPushは作ってません
-      function cPush(){
-        document.getElementById("street").classList.toggle("redButton");
+      function sDown(){
+        document.getElementById("backButton").classList.add("redButton");
+      }
+      function dDown(){
+        document.getElementById("rightButton").classList.add("redButton");
+      }
+
+      function zDown(){
+        document.getElementById("stopButton").classList.add("redButton");
+      }
+      //xDownは特殊だからここには書かない
+      function cDown(){
+        document.getElementById("centerButton").classList.add("redButton");
+      }
+
+
+      //各キーボードを離したら、redを取り除く
+      function qUp(){
+        document.getElementById("emptyButton").classList.remove("redButton");
+      }
+      function wUp(){
+        document.getElementById("startButton").classList.remove("redButton");
+      }
+      function eUp(){
+        document.getElementById("emptyButton2").classList.remove("redButton");
+      }
+
+      function aUp(){
+        document.getElementById("leftButton").classList.remove("redButton");
+      }
+      function sUp(){
+        document.getElementById("backButton").classList.remove("redButton");
+      }
+      function dUp(){
+        document.getElementById("rightButton").classList.remove("redButton");
+      }
+
+      function zUp(){
+        document.getElementById("stopButton").classList.remove("redButton");
+      }
+      //xUpも特殊
+      function cUp(){
+        document.getElementById("centerButton").classList.remove("redButton");
       }
 
 
@@ -254,28 +290,28 @@
       function emptyButtonClick(){
         display.textContent = "反応ないです";
       }
-      function goClick(){
+      function startButtonClick(){
         display.textContent = "前進";
       }
       function emptyButton2Click(){
         display.textContent = "反応ないよ";
       }
 
-      function leftClick(){
+      function leftButtonClick(){
         display.textContent = "左折";
       }
-      function backClick(){
+      function backButtonClick(){
         display.textContent = "後退";
       }
-      function rightClick(){
+      function rightButtonClick(){
         display.textContent = "右折";
       }
 
-      function stopClick(){
+      function stopButtonClick(){
         display.textContent = "停止";
       }
       //themeButtonClick()はちょっと特殊なので後で記述
-      function streetClick(){
+      function centerButtonClick(){
         display.textContent = "まっすぐ";
       }
 
@@ -290,16 +326,16 @@
         document.getElementById("buttons-container").classList.toggle("light-buttons-container");
 
         document.getElementById("emptyButton").classList.toggle("light-button");
-        document.getElementById("go").classList.toggle("light-button");
+        document.getElementById("startButton").classList.toggle("light-button");
         document.getElementById("emptyButton2").classList.toggle("light-button");
 
-        document.getElementById("left").classList.toggle("light-button");
-        document.getElementById("back").classList.toggle("light-button");
-        document.getElementById("right").classList.toggle("light-button");
+        document.getElementById("leftButton").classList.toggle("light-button");
+        document.getElementById("backButton").classList.toggle("light-button");
+        document.getElementById("rightButton").classList.toggle("light-button");
 
-        document.getElementById("stop").classList.toggle("light-button");
+        document.getElementById("stopButton").classList.toggle("light-button");
         document.getElementById("themeButton").classList.toggle("light-button");
-        document.getElementById("street").classList.toggle("light-button");
+        document.getElementById("centerButton").classList.toggle("light-button");
       }
 
     </script>
