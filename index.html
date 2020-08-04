@@ -186,7 +186,7 @@
           document.getElementById("stopButton").click();
           zDown();
         }else if(keyName === 'x'){
-          document.getElementById("themeButton").click();
+          document.getElementById("themeButton").click(); //themeボタンは他のボタンと違って特殊なので、対応するxキーも扱いに注意
           xDown();
         }else if(keyName === 'c'){
           document.getElementById("centerButton").click();
@@ -321,8 +321,7 @@
 
       //themeButtonが押されたときは、ライトテーマ切り替え
       function themeButtonClick(){
-        display.textContent = "ライトテーマ";
-
+        
         document.body.classList.toggle("light-body");
         document.getElementById("controller").classList.toggle("light-controller");
         document.getElementById("display").classList.toggle("light-display");
