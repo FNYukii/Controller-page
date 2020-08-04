@@ -320,7 +320,16 @@
 
 
       //themeButtonが押されたときは、ライトテーマ切り替え
+      let themeNumber = 0;
       function themeButtonClick(){
+
+        if(themeNumber === 0){
+          display.textContent = "ライトテーマ";
+          themeNumber = 1;
+        }else if(themeNumber === 1){
+          display.textContent = "ダークテーマ";
+          themeNumber = 0;
+        }
         
         document.body.classList.toggle("light-body");
         document.getElementById("controller").classList.toggle("light-controller");
